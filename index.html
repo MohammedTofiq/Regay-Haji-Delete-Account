@@ -4,30 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account & Data Deletion | Regay Haji</title>
-    <meta name="description"
-          content="Request deletion of your Regay Haji account and associated personal data.">
+    <meta name="description" content="Request deletion of your Regay Haji account and associated personal data.">
+    <meta name="theme-color" content="#fffbf0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+        
         :root {
-    --cream: #fffbf0;
-    --cream-light: #fffdf7;
-    --white: #ffffff;
+            --cream: #fffbf0;
+            --cream-light: #fffdf7;
+            --white: #ffffff;
+            --olive: #49541c;
+            --olive-light: #6f7a3c;
+            --gold: #c5a052;
+            --gold-light: #e5d19a;
+            --text: #30351f;
+            --text-muted: #747966;
+            --border: rgba(109, 125, 47, 0.14);
+            --shadow: 
+                0 20px 50px rgba(60, 70, 30, 0.08),
+                0 4px 12px rgba(60, 70, 30, 0.04);
+        }
 
-    --olive: #49541c;
-    --olive-light: #6f7a3c;
-
-    --gold: #c5a052;
-    --gold-light: #e5d19a;
-
-    --text: #30351f;
-    --text-muted: #747966;
-
-    --border: rgba(109, 125, 47, 0.14);
-
-    --shadow:
-        0 20px 50px rgba(60, 70, 30, 0.08),
-        0 4px 12px rgba(60, 70, 30, 0.04);
-    }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -39,14 +36,14 @@
         }
 
         body {
-            font-family:
+            font-family: 
                 'Inter',
                 'Noto Sans Arabic',
                 -apple-system,
                 BlinkMacSystemFont,
                 'Segoe UI',
                 sans-serif;
-            background:
+            background: 
                 radial-gradient(
                     circle at 50% 0%,
                     rgba(196, 154, 69, 0.10),
@@ -57,15 +54,14 @@
             min-height: 100vh;
             padding: 40px 20px 60px;
         }
+
         .page {
             width: 100%;
             max-width: 620px;
             margin: auto;
         }
 
-        /* =========================
-           HEADER
-        ========================= */
+        /* HEADER */
         .header {
             text-align: center;
             margin-bottom: 34px;
@@ -77,11 +73,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             background: var(--white);
             border-radius: 26px;
-            box-shadow:
-                0 12px 30px rgba(48, 51, 25, 0.10);
+            box-shadow: 0 12px 30px rgba(48, 51, 25, 0.10);
             border: 1px solid rgba(66, 70, 36, 0.08);
         }
         .logo {
@@ -126,9 +120,7 @@
             background: var(--gold);
         }
 
-        /* =========================
-           MAIN CARD
-        ========================= */
+        /* MAIN CARD */
         .main-card {
             background: var(--white);
             border: 1px solid var(--border);
@@ -177,9 +169,7 @@
             font-weight: 600;
         }
 
-        /* =========================
-           DATA LIST
-        ========================= */
+        /* DATA LIST */
         .data-list {
             list-style: none;
             display: flex;
@@ -209,7 +199,7 @@
             font-size: 12px;
             font-weight: 700;
         }
-        .data-item span {
+        .data-item span:not(.check) {
             font-size: 13px;
             line-height: 1.55;
             color: var(--text);
@@ -219,9 +209,7 @@
             color: var(--olive);
         }
 
-        /* =========================
-           NOTICE
-        ========================= */
+        /* NOTICE */
         .notice {
             display: flex;
             gap: 13px;
@@ -253,17 +241,14 @@
             color: #725620;
         }
 
-        /* =========================
-           ACTION
-        ========================= */
+        /* ACTION */
         .action-card {
             text-align: center;
             background: var(--olive);
             color: white;
             border-radius: 24px;
             padding: 30px 25px;
-            box-shadow:
-                0 18px 40px rgba(48, 51, 25, 0.16);
+            box-shadow: 0 18px 40px rgba(48, 51, 25, 0.16);
             margin-bottom: 18px;
         }
         .action-card h2 {
@@ -291,22 +276,17 @@
             border-radius: 13px;
             font-size: 14px;
             font-weight: 700;
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .primary-button:hover {
             transform: translateY(-2px);
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
         .email-icon {
             font-size: 16px;
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
+        /* CONTACT */
         .contact-card {
             background: rgba(255, 255, 255, 0.65);
             border: 1px solid var(--border);
@@ -342,9 +322,7 @@
             color: #999A88;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
         footer {
             text-align: center;
             margin-top: 28px;
@@ -361,9 +339,7 @@
             line-height: 1.6;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* RESPONSIVE */
         @media (max-width: 600px) {
             body {
                 padding: 25px 14px 45px;
@@ -395,9 +371,9 @@
     <!-- HEADER -->
     <header class="header">
         <div class="logo-wrapper">
-            <img
-                src="logo_transparent.png"
-                alt="Regay Haji"
+            <img 
+                src="logo_transparent.png" 
+                alt="Regay Haji Logo" 
                 class="logo"
             >
         </div>
@@ -408,10 +384,11 @@
             Regay Haji
         </div>
         <div class="badge">
-            <span class="badge-dot"></span>
+            <span class="badge-dot" aria-hidden="true"></span>
             Account Deletion
         </div>
     </header>
+
     <!-- INFORMATION -->
     <main class="main-card">
         <section class="section">
@@ -420,11 +397,12 @@
             </div>
             <h2>Account & Data Deletion</h2>
             <p>
-                You can request the permanent deletion of your
-                <strong>Regay Haji</strong> account and the personal
+                You can request the permanent deletion of your 
+                <strong>Regay Haji</strong> account and all personal 
                 information associated with it.
             </p>
         </section>
+
         <section class="section">
             <div class="section-label">
                 Data Removed
@@ -432,89 +410,83 @@
             <h2>What will be deleted?</h2>
             <ul class="data-list">
                 <li class="data-item">
-                    <span class="check">✓</span>
+                    <span class="check" aria-hidden="true">✓</span>
                     <span>
                         <strong>Profile information</strong><br>
-                        Name, email address, and account information.
+                        Name, email address, and account credentials.
                     </span>
                 </li>
                 <li class="data-item">
-                    <span class="check">✓</span>
+                    <span class="check" aria-hidden="true">✓</span>
                     <span>
                         <strong>Google Sign-In information</strong><br>
-                        Information associated with your Google account
-                        used to sign in.
+                        Authentication tokens and linked profile data.
                     </span>
                 </li>
                 <li class="data-item">
-                    <span class="check">✓</span>
+                    <span class="check" aria-hidden="true">✓</span>
                     <span>
-                        <strong>Saved data</strong><br>
-                        Saved trips, favorites, and personal settings.
+                        <strong>Saved data & bookings</strong><br>
+                        Saved trips, favorites, booked seats, and personal preferences.
                     </span>
                 </li>
                 <li class="data-item">
-                    <span class="check">✓</span>
+                    <span class="check" aria-hidden="true">✓</span>
                     <span>
                         <strong>Account activity</strong><br>
-                        Account-related records associated with your profile.
+                        Historical application records linked to your profile.
                     </span>
                 </li>
             </ul>
+
             <div class="notice">
-                <div class="notice-icon">
-                    !
-                </div>
+                <div class="notice-icon" aria-hidden="true">!</div>
                 <p>
-                    <strong>Processing time:</strong>
-                    Your deletion request will be processed within
-                    <strong>7 days</strong>.
-                    Once deleted, the information cannot be recovered
-                    through your account.
+                    <strong>Processing & Retention:</strong> 
+                    Your deletion request will be completed within 
+                    <strong>7 business days</strong>. Note that non-identifying transaction logs may be retained temporarily solely for statutory tax or auditing obligations before permanent purging.
                 </p>
             </div>
         </section>
     </main>
+
     <!-- ACTION -->
     <section class="action-card">
         <h2>Request Account Deletion</h2>
         <p>
-            Send us a deletion request using the email address
+            Click below to send us a deletion request using the email address 
             associated with your Regay Haji account.
         </p>
-        <a
-            href="mailto:hmexplorer77@gmail.com?subject=Account%20Deletion%20Request%20-%20Regay%20Haji"
+        <a 
+            href="mailto:hmexplorer77@gmail.com?subject=Account%20Deletion%20Request%20-%20Regay%20Haji&body=Hello%20Regay%20Haji%20Support,%0A%0AI%20would%20like%20to%20request%20the%20permanent%20deletion%20of%20my%20account%20and%20associated%20data.%0A%0AAccount%20Email:%20[Your%20Email%20Here]%0APhone%20Number%20(optional):%20%0A%0AThank%20you." 
             class="primary-button"
         >
-            <span class="email-icon">✉</span>
+            <span class="email-icon" aria-hidden="true">✉</span>
             Request Deletion
         </a>
     </section>
+
     <!-- CONTACT -->
     <section class="contact-card">
         <div class="contact-label">
             Need help?
         </div>
-        <a
-            href="mailto:hmexplorer77@gmail.com"
+        <a 
+            href="mailto:hmexplorer77@gmail.com" 
             class="email-link"
         >
             hmexplorer77@gmail.com
         </a>
         <p class="contact-note">
-            Please contact us if you have questions about your
-            account or deletion request.
+            Feel free to contact us if you have any questions prior to deleting your account.
         </p>
     </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-line"></div>
-        <p>
-            © 2026 Regay Haji · HM Studio
-        </p>
-        <p>
-            Account & Data Deletion
-        </p>
+        <p>© 2026 Regay Haji · HM Studio</p>
+        <p>Account & Data Deletion Portal</p>
     </footer>
 </div>
 </body>
