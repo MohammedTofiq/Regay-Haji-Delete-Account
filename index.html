@@ -1,254 +1,518 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account & Data Deletion - Regay Haji (ڕێگەی حاجی)</title>
+    <title>Account & Data Deletion | Regay Haji</title>
+    <meta name="description"
+          content="Request deletion of your Regay Haji account and associated personal data.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
         :root {
-            /* Precise Colors From The App Screenshot */
-            --app-bg: #fcf6e2;             /* The warm cream background */
-            --card-bg: #ffffff;
-            --olive-primary: #6c7847;      /* Olive green from logo/headings */
-            --forest-active: #23311a;      /* Dark green from the main button */
-            --text-dark: #333333;
-            --text-olive-muted: #5e6844;  /* A softer tone of the olive */
-            --border-light: #e0e0e0;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --cream: #FCF4DF;
+            --cream-light: #FFF9EA;
+            --white: #FFFFFF;
+            --olive: #424624;
+            --olive-light: #7C7D5E;
+            --gold: #C49A45;
+            --gold-light: #E5C985;
+            --text: #303319;
+            --text-muted: #777962;
+            --border: rgba(66, 70, 36, 0.12);
+            --shadow:
+                0 20px 50px rgba(48, 51, 25, 0.08),
+                0 4px 12px rgba(48, 51, 25, 0.04);
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--app-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
+            font-family:
+                'Inter',
+                'Noto Sans Arabic',
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI',
+                sans-serif;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(196, 154, 69, 0.10),
+                    transparent 32%
+                ),
+                var(--cream);
+            color: var(--text);
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px 60px;
         }
-
-        .phone-container {
+        .page {
             width: 100%;
-            max-width: 420px; /* Mimics a phone screen size on desktop */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
+            max-width: 620px;
+            margin: auto;
         }
 
+        /* =========================
+           HEADER
+        ========================= */
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 34px;
         }
+        .logo-wrapper {
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
+            background: var(--white);
+            border-radius: 26px;
+            box-shadow:
+                0 12px 30px rgba(48, 51, 25, 0.10);
+            border: 1px solid rgba(66, 70, 36, 0.08);
+        }
         .logo {
-            width: 80px; /* App icon size */
-            height: auto;
-            margin-bottom: 20px;
+            width: 68px;
+            height: 68px;
+            object-fit: contain;
+            border-radius: 18px;
         }
-
-        .app-title-arabic {
-            font-size: 28px;
+        .kurdish-title {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            font-size: 30px;
             font-weight: 600;
-            color: var(--olive-primary);
-            margin-bottom: 5px;
-            /* To match the spacing/weight in the screenshot */
-            letter-spacing: -0.5px;
+            color: var(--olive);
+            line-height: 1.4;
+            margin-bottom: 2px;
         }
-
-        .app-title-english {
-            font-size: 16px;
-            color: var(--text-olive-muted);
-            margin-bottom: 10px;
+        .english-title {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--olive-light);
+            margin-bottom: 16px;
         }
-
         .badge {
-            display: inline-block;
-            background-color: #ffffff;
-            color: var(--olive-primary);
-            border: 1px solid var(--olive-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 13px;
+            background: rgba(196, 154, 69, 0.10);
+            border: 1px solid rgba(196, 154, 69, 0.30);
+            border-radius: 999px;
+            color: #8D6B2C;
             font-size: 11px;
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 100px; /* Perfect pill shape */
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
 
-        .content-card {
-            width: 100%;
-            background-color: var(--card-bg);
-            border-radius: 20px; /* App card radius */
-            padding: 25px;
+        /* =========================
+           MAIN CARD
+        ========================= */
+        .main-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            padding: 30px;
             box-shadow: var(--shadow);
-            margin-bottom: 25px;
-            border: 1px solid #f0f0f0;
+            margin-bottom: 18px;
         }
-
-        .card-heading {
-            font-size: 18px;
-            color: var(--olive-primary);
-            margin-bottom: 15px;
-            font-weight: 600;
+        .section {
+            margin-bottom: 28px;
         }
-
-        p {
-            font-size: 14px;
-            color: var(--text-olive-muted);
-            margin-bottom: 15px;
+        .section:last-child {
+            margin-bottom: 0;
         }
-
-        ul {
-            list-style: none;
-            margin-bottom: 15px;
-        }
-
-        ul li {
-            font-size: 14px;
-            color: var(--text-dark);
-            margin-bottom: 10px;
+        .section-label {
             display: flex;
-            align-items: start;
-        }
-
-        ul li strong {
-            color: var(--text-dark);
-            margin-right: 5px;
-        }
-
-        /* Olive-green bullet points like a checklist */
-        ul li::before {
-            content: "•";
-            color: var(--olive-primary);
-            font-weight: bold;
-            display: inline-block;
-            width: 1.2em;
-            margin-left: 0;
-            font-size: 1.2em;
-        }
-
-        .action-box {
-            width: 100%;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* The main large button matching 'Log in' color and style */
-        .primary-action-btn {
-            display: block;
-            width: 100%;
-            background-color: var(--forest-active); /* Dark forest green */
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            padding: 16px;
-            border-radius: 12px; /* App button radius */
-            margin-bottom: 20px;
-            transition: opacity 0.2s ease;
-        }
-
-        .primary-action-btn:hover {
-            opacity: 0.9;
-        }
-
-        .divider {
-            position: relative;
-            width: 100%;
-            text-align: center;
-            margin: 20px 0;
-            border-bottom: 1px solid var(--border-light);
-            line-height: 0.1em;
-        }
-
-        .divider span {
-            background: var(--app-bg);
-            padding: 0 10px;
-            color: #aaaaaa;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 11px;
             font-size: 12px;
-            font-weight: 500;
+            font-weight: 700;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
+            color: var(--gold);
         }
-
-        /* The 'other' contact options (matching "Continue with Google" look) */
-        .secondary-option {
-            width: 100%;
-            display: block;
-            background-color: #ffffff;
-            color: var(--olive-primary);
-            text-decoration: none;
-            border: 1px solid var(--olive-primary);
-            font-size: 14px;
-            font-weight: 500;
-            padding: 14px;
+        .section-label::before {
+            content: "";
+            width: 22px;
+            height: 2px;
             border-radius: 10px;
-            margin-bottom: 10px;
-            text-align: center;
+            background: var(--gold);
         }
-
-        code {
-            background-color: var(--app-bg);
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: var(--forest-active);
+        .section h2 {
+            font-size: 20px;
             font-weight: 600;
-            font-size: 13px;
+            color: var(--olive);
+            margin-bottom: 10px;
+        }
+        .section p {
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--text-muted);
+        }
+        .section p strong {
+            color: var(--olive);
+            font-weight: 600;
         }
 
-        .footer-note {
+        /* =========================
+           DATA LIST
+        ========================= */
+        .data-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .data-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 13px 14px;
+            background: var(--cream-light);
+            border: 1px solid rgba(66, 70, 36, 0.07);
+            border-radius: 13px;
+        }
+        .check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(66, 70, 36, 0.10);
+            color: var(--olive);
             font-size: 12px;
-            color: #aaaaaa;
-            margin-top: 20px;
-            max-width: 80%;
+            font-weight: 700;
+        }
+        .data-item span {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--text);
+        }
+        .data-item strong {
+            font-weight: 600;
+            color: var(--olive);
+        }
+
+        /* =========================
+           NOTICE
+        ========================= */
+        .notice {
+            display: flex;
+            gap: 13px;
+            padding: 15px;
+            background: #FBF7EC;
+            border: 1px solid rgba(196, 154, 69, 0.25);
+            border-radius: 14px;
+            margin-top: 16px;
+        }
+        .notice-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(196, 154, 69, 0.15);
+            color: #9B742E;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .notice p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #77705B;
+        }
+        .notice strong {
+            color: #725620;
+        }
+
+        /* =========================
+           ACTION
+        ========================= */
+        .action-card {
             text-align: center;
+            background: var(--olive);
+            color: white;
+            border-radius: 24px;
+            padding: 30px 25px;
+            box-shadow:
+                0 18px 40px rgba(48, 51, 25, 0.16);
+            margin-bottom: 18px;
+        }
+        .action-card h2 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .action-card p {
+            max-width: 430px;
+            margin: 0 auto 22px;
+            font-size: 13px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.70);
+        }
+        .primary-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--white);
+            color: var(--olive);
+            text-decoration: none;
+            border-radius: 13px;
+            font-size: 14px;
+            font-weight: 700;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .email-icon {
+            font-size: 16px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+        }
+        .contact-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--olive-light);
+            margin-bottom: 8px;
+        }
+        .email-link {
+            display: inline-block;
+            color: var(--olive);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+        .email-link:hover {
+            background: rgba(66, 70, 36, 0.07);
+        }
+        .contact-note {
+            margin-top: 7px;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #999A88;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            text-align: center;
+            margin-top: 28px;
+        }
+        .footer-line {
+            width: 40px;
+            height: 1px;
+            background: rgba(66, 70, 36, 0.20);
+            margin: 0 auto 13px;
+        }
+        footer p {
+            font-size: 11px;
+            color: #999A88;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 14px 45px;
+            }
+            .main-card {
+                padding: 23px 20px;
+                border-radius: 22px;
+            }
+            .action-card {
+                padding: 27px 20px;
+                border-radius: 22px;
+            }
+            .kurdish-title {
+                font-size: 27px;
+            }
+            .logo-wrapper {
+                width: 84px;
+                height: 84px;
+            }
+            .logo {
+                width: 62px;
+                height: 62px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="phone-container">
-        <div class="header">
-            <!-- Save your image as logo.jpg next to this file -->
-            <img src="logo_transparent.png" alt="Regay Haji Logo" class="logo">
-            <div class="app-title-arabic">ڕێگەی حاجی</div>
-            <div class="app-title-english">Regay Haji</div>
-            <span class="badge">Deletion Support</span>
+<div class="page">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo-wrapper">
+            <img
+                src="logo.jpg"
+                alt="Regay Haji"
+                class="logo"
+            >
         </div>
-
-        <div class="content-card">
-            <h2 class="card-heading">Policy Overview</h2>
-            <p>You may request the full deletion of your <strong>ڕێگەی حاجی</strong> account and all associated personal data from our servers.</p>
+        <div class="kurdish-title" dir="rtl">
+            ڕێگەی حاجی
         </div>
-
-        <div class="content-card">
-            <h2 class="card-heading">Data Removed</h2>
-            <ul>
-                <li><strong>Profile:</strong> Name, Email, Google Sign-In data.</li>
-                <li><strong>Activity:</strong> Saved Favorites, Settings, Logs.</li>
+        <div class="english-title">
+            Regay Haji
+        </div>
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Account Deletion
+        </div>
+    </header>
+    <!-- INFORMATION -->
+    <main class="main-card">
+        <section class="section">
+            <div class="section-label">
+                Information
+            </div>
+            <h2>Account & Data Deletion</h2>
+            <p>
+                You can request the permanent deletion of your
+                <strong>Regay Haji</strong> account and the personal
+                information associated with it.
+            </p>
+        </section>
+        <section class="section">
+            <div class="section-label">
+                Data Removed
+            </div>
+            <h2>What will be deleted?</h2>
+            <ul class="data-list">
+                <li class="data-item">
+                    <span class="check">✓</span>
+                    <span>
+                        <strong>Profile information</strong><br>
+                        Name, email address, and account information.
+                    </span>
+                </li>
+                <li class="data-item">
+                    <span class="check">✓</span>
+                    <span>
+                        <strong>Google Sign-In information</strong><br>
+                        Information associated with your Google account
+                        used to sign in.
+                    </span>
+                </li>
+                <li class="data-item">
+                    <span class="check">✓</span>
+                    <span>
+                        <strong>Saved data</strong><br>
+                        Saved trips, favorites, and personal settings.
+                    </span>
+                </li>
+                <li class="data-item">
+                    <span class="check">✓</span>
+                    <span>
+                        <strong>Account activity</strong><br>
+                        Account-related records associated with your profile.
+                    </span>
+                </li>
             </ul>
-            <p style="font-size: 13px; margin-top: 5px; color: #888;">Note: Data is removed within <strong>7 days</strong>.</p>
+            <div class="notice">
+                <div class="notice-icon">
+                    !
+                </div>
+                <p>
+                    <strong>Processing time:</strong>
+                    Your deletion request will be processed within
+                    <strong>7 days</strong>.
+                    Once deleted, the information cannot be recovered
+                    through your account.
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- ACTION -->
+    <section class="action-card">
+        <h2>Request Account Deletion</h2>
+        <p>
+            Send us a deletion request using the email address
+            associated with your Regay Haji account.
+        </p>
+        <a
+            href="mailto:hmexplorer77@gmail.com?subject=Account%20Deletion%20Request%20-%20Regay%20Haji"
+            class="primary-button"
+        >
+            <span class="email-icon">✉</span>
+            Request Deletion
+        </a>
+    </section>
+    <!-- CONTACT -->
+    <section class="contact-card">
+        <div class="contact-label">
+            Need help?
         </div>
-
-        <div class="action-box">
-            <a href="mailto:hmexplorer77@gmail.com?subject=Account%20Deletion%20Request%20-%20Regay%20Haji" class="primary-action-btn">
-                REQUEST DELETION
-            </a>
-
-            <div class="divider"><span>OR CONTACT</span></div>
-
-            <a href="mailto:hmexplorer77@gmail.com" class="secondary-option">
-                hmexplorer77@gmail.com
-            </a>
-            
-            <p class="footer-note">Please email us using the address linked to your Regay Haji account.</p>
-        </div>
-    </div>
-
+        <a
+            href="mailto:hmexplorer77@gmail.com"
+            class="email-link"
+        >
+            hmexplorer77@gmail.com
+        </a>
+        <p class="contact-note">
+            Please contact us if you have questions about your
+            account or deletion request.
+        </p>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-line"></div>
+        <p>
+            © 2026 Regay Haji · HM Studio
+        </p>
+        <p>
+            Account & Data Deletion
+        </p>
+    </footer>
+</div>
 </body>
 </html>
+```
