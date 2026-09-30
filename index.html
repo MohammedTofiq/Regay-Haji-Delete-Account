@@ -5,47 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account & Data Deletion - Regay Haji (ڕێگەی حاجی)</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
+        :root {
+            --bg-color: #f2f7f4;
+            --card-bg: #ffffff;
+            --primary-green: #2e6f40;
+            --light-green: #e1efe6;
+            --accent-gold: #d4af37;
+            --text-dark: #1b3022;
+            --text-muted: #4a6352;
+            --shadow: 0 10px 25px rgba(46, 111, 64, 0.08);
         }
-        h1 { color: #1a5f7a; }
-        h2 { color: #2b2d42; margin-top: 25px; }
-        ul { margin-bottom: 20px; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 45px 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(46, 111, 64, 0.12);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            width: 130px;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .app-title {
+            font-size: 26px;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: var(--primary-green);
+            margin-top: 30px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+            background: var(--light-green);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
         .box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #1a5f7a;
-            padding: 15px;
-            margin-top: 20px;
+            background-color: var(--light-green);
+            border-radius: 18px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px dashed var(--primary-green);
+            text-align: center;
+        }
+
+        .box h2 {
+            justify-content: center;
+            margin-top: 0;
+        }
+
+        .email-btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 12px;
+            margin: 15px 0 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(46, 111, 64, 0.25);
+        }
+
+        .email-btn:hover {
+            background-color: #235732;
+            transform: translateY(-2px);
+        }
+
+        code {
+            background-color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid rgba(46, 111, 64, 0.2);
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <h1>ڕێگەی حاجی - Regay Haji</h1>
-    <h2>Account and Data Deletion Request</h2>
+    <div class="container">
+        <div class="header">
+            <img src="logo.jpg" alt="Regay Haji Logo" class="logo">
+            <h1 class="app-title">ڕێگەی حاجی - Regay Haji</h1>
+            <div class="page-subtitle">Account & Data Deletion</div>
+            <span class="badge">Official Support Page</span>
+        </div>
 
-    <p>If you have created an account in the <strong>ڕێگەی حاجی (Regay Haji)</strong> mobile application and wish to request the deletion of your account and associated personal data, you can do so by submitting a request via email.</p>
+        <p>If you have created an account in the <strong>ڕێگەی حاجی (Regay Haji)</strong> mobile application and wish to request the deletion of your account and associated personal data, you can do so by submitting a request via email.</p>
 
-    <h2>Data That Will Be Permanently Deleted</h2>
-    <ul>
-        <li><strong>Account Profile:</strong> Your full name, email address, and authentication credentials (including Google Sign-In profile identifiers).</li>
-        <li><strong>User Preferences & Activity:</strong> Saved agency favorites, app settings, and interaction logs stored on our backend servers.</li>
-    </ul>
+        <h2>Data That Will Be Permanently Deleted</h2>
+        <ul>
+            <li><strong>Account Profile:</strong> Your full name, email address, and authentication credentials (including Google Sign-In profile identifiers).</li>
+            <li><strong>User Preferences & Activity:</strong> Saved agency favorites, app settings, and interaction logs stored on our backend servers.</li>
+        </ul>
 
-    <h2>Data Retention Policy</h2>
-    <p>Upon receiving your request, all personal data linked to your account will be permanently deleted from our active database within <strong>7 business days</strong>. No retained records or personal logs will be kept.</p>
+        <h2>Data Retention Policy</h2>
+        <p>Upon receiving your request, all personal data linked to your account will be permanently deleted from our active database within <strong>7 business days</strong>. No retained records or personal logs will be kept.</p>
 
-    <div class="box">
-        <h2>How to Request Account Deletion</h2>
-        <p>To request deletion of your account and personal data, send an email to:</p>
-        <p><strong>Email:</strong> <a href="mailto:hmexplorer77@gmail.com">hmexplorer77@gmail.com</a></p>
-        <p><strong>Subject line:</strong> <code>Account Deletion Request - Regay Haji</code></p>
-        <p><em>Please ensure you send the deletion request from the email address associated with your app account so we can verify ownership.</em></p>
+        <div class="box">
+            <h2>How to Request Account Deletion</h2>
+            <p>Click below or send an email to request account deletion:</p>
+            <a href="mailto:hmexplorer77@gmail.com?subject=Account%20Deletion%20Request%20-%20Regay%20Haji" class="email-btn">
+                ✉️ Send Deletion Request
+            </a>
+            <p><strong>Email:</strong> <code>hmexplorer77@gmail.com</code></p>
+            <p><strong>Subject line:</strong> <code>Account Deletion Request - Regay Haji</code></p>
+            <p class="footer-note">Please ensure you send the request from the email address associated with your app account so we can verify ownership.</p>
+        </div>
     </div>
 
 </body>
